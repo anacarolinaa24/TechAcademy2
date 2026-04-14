@@ -8,7 +8,7 @@ Site criado para ajudar donas de casa e famílias a encontrarem diaristas de con
 - HTML5
 - CSS3
 - Bootstrap
-- JavaScript
+
 
 ## 📑 Funcionalidades
 - Página inicial com chamada principal e botão de agendamento
