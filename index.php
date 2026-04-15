@@ -10,24 +10,31 @@
 <body>
     <header class="header">
         <img class="banner-imagem" src="imagens/Banner.png" alt="Banner da Faxina Confiavel">
+
+        <nav class="header-nav">
+            <a href="index.php?pagina=home">Home</a>
+            <a href="index.php?pagina=funcionamento">Quem somos</a>
+            <a href="index.php?pagina=servico">Serviços</a>
+            <a href="index.php?pagina=contato">Contato</a>
+        </nav>
     </header>
 
-    <nav class="header-nav">
-        <a href="index.php">Inicio</a>
-        <a href="funcionamento.php">Como funciona</a>
-        <a href="servicos.php">Servicos</a>
-        <a href="contato.php">Contato</a>
-    </nav>
-
     <main>
-        <section class="conteudo-principal">
-            <h1>Bem-vindo a Faxina Confiavel</h1>
-            <p>Escolha uma opcao no menu para conhecer nossos servicos e entrar em contato.</p>
-        </section>
-    </main>
+        <?php
+            //recuperar a variavel pagina que esta vindo por get
+            $pagina = $_GET["pagina"] ?? "home";
+            $pagina = "paginas/{$pagina}.php";
 
-    <footer>
-        <h1>Inserir alguma coisa</h1>
+            //verificar se a pagina existe
+            if(file_exists($pagina)){
+                include $pagina;
+            }else{
+                include "paginas/404.php";
+            }
+        ?>
+    </main>
+    <footer class="footer">
+        <p>Desenvolvido por Ana Carolina</p>
     </footer>
 </body>
 </html>
