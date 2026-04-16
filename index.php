@@ -3,13 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <?php
+        $baseUrl = str_replace("\\", "/", dirname($_SERVER["SCRIPT_NAME"]));
+        $baseUrl = $baseUrl === "/" ? "" : rtrim($baseUrl, "/");
+        $cssUrl = $baseUrl . "/css/style.css?v=" . filemtime(__DIR__ . "/css/style.css");
+        $iconeUrl = $baseUrl . "/imagens/icone.png";
+        $bannerUrl = $baseUrl . "/imagens/Banner.png";
+    ?>
     <title>Faxina Confiavel</title>
-    <link rel="shortcut icon" href="imagens/icone.png">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="shortcut icon" href="<?= $iconeUrl ?>">
+    <link rel="stylesheet" href="<?= $cssUrl ?>">
 </head>
 <body>
     <header class="header">
-        <img class="banner-imagem" src="imagens/Banner.png" alt="Banner da Faxina Confiavel">
+        <img class="banner-imagem" src="<?= $bannerUrl ?>" alt="Banner da Faxina Confiavel">
 
         <nav class="header-nav">
             <a href="index.php?pagina=home">Home</a>
