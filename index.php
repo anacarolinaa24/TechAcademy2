@@ -41,7 +41,44 @@
         ?>
     </main>
     <footer class="footer">
-        <p>Desenvolvido por Ana Carolina</p>
+        <div class="footer-conteudo">
+            <div class="footer-marca">
+                <h2>Faxina Confiavel</h2>
+                <p>
+                    Solucoes em limpeza com atendimento acolhedor, profissionais cuidadosas
+                    e mais praticidade para sua rotina.
+                </p>
+            </div>
+
+            <div class="footer-coluna">
+                <h3>Navegacao</h3>
+                <a href="index.php?pagina=home">Home</a>
+                <a href="index.php?pagina=funcionamento">Quem somos</a>
+                <a href="index.php?pagina=servico">Servicos</a>
+                <a href="index.php?pagina=contato">Contato</a>
+            </div>
+
+            <div class="footer-coluna">
+                <h3>Contato</h3>
+                <a href="tel:+5500000000000">(00) 0000-0000</a>
+                <a href="https://wa.me/5500000000000" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+                <a href="mailto:contato@faxinaconfiavel.com.br">contato@faxinaconfiavel.com.br</a>
+                <span>Atendimento com agendamento previo</span>
+            </div>
+
+            <div class="footer-coluna">
+                <h3>Atendimento</h3>
+                <span>Limpeza residencial</span>
+                <span>Limpeza comercial</span>
+                <span>Pos-obra</span>
+                <a class="footer-cta" href="index.php?pagina=contato">Agendar atendimento</a>
+            </div>
+        </div>
+
+        <div class="footer-rodape">
+            <p>Faxina Confiavel</p>
+            <p>Desenvolvido por Ana Carolina</p>
+        </div>
     </footer>
 </body>
 </html>
