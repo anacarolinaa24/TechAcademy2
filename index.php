@@ -19,6 +19,12 @@
     ?>
     <title>Faxina Confiavel</title>
     <link rel="shortcut icon" href="<?= $iconeUrl ?>">
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+        crossorigin="anonymous"
+    >
     <link rel="stylesheet" href="<?= $cssUrl ?>">
 </head>
 <body>
@@ -72,7 +78,7 @@
                 <span>Limpeza residencial</span>
                 <span>Limpeza comercial</span>
                 <span>Pos-obra</span>
-                <a class="footer-cta" href="index.php?pagina=contato">Agendar atendimento</a>
+                <a class="btn btn-light rounded-pill footer-cta" href="index.php?pagina=contato">Agendar atendimento</a>
             </div>
         </div>
 
@@ -81,18 +87,10 @@
             <p>Desenvolvido por Ana Carolina</p>
         </div>
     </footer>
-    <script>
-        const menuBotao = document.querySelector("[data-menu-toggle]");
-        const menuPainel = document.querySelector("[data-menu-panel]");
-
-        if (menuBotao && menuPainel) {
-            menuBotao.addEventListener("click", () => {
-                const menuAberto = menuBotao.getAttribute("aria-expanded") === "true";
-
-                menuBotao.setAttribute("aria-expanded", String(!menuAberto));
-                menuPainel.dataset.open = String(!menuAberto);
-            });
-        }
-    </script>
+    <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"
+    ></script>
 </body>
 </html>
