@@ -9,6 +9,13 @@
         $cssUrl = $baseUrl . "/css/style.css?v=" . filemtime(__DIR__ . "/css/style.css");
         $iconeUrl = $baseUrl . "/imagens/icone.png";
         $bannerUrl = $baseUrl . "/imagens/Banner.png";
+        $paginaAtual = $_GET["pagina"] ?? "home";
+        $navLinks = [
+            "home" => "Home",
+            "funcionamento" => "Quem somos",
+            "servico" => "Servicos",
+            "contato" => "Contato",
+        ];
     ?>
     <title>Faxina Confiavel</title>
     <link rel="shortcut icon" href="<?= $iconeUrl ?>">
@@ -18,18 +25,13 @@
     <header class="header">
         <img class="banner-imagem" src="<?= $bannerUrl ?>" alt="Banner da Faxina Confiavel">
 
-        <nav class="header-nav">
-            <a href="index.php?pagina=home">Home</a>
-            <a href="index.php?pagina=funcionamento">Quem somos</a>
-            <a href="index.php?pagina=servico">Serviços</a>
-            <a href="index.php?pagina=contato">Contato</a>
-        </nav>
+        <?php include __DIR__ . "/paginas/includes/nav.php"; ?>
     </header>
 
     <main>
         <?php
             //recuperar a variavel pagina que esta vindo por get
-            $pagina = $_GET["pagina"] ?? "home";
+            $pagina = $paginaAtual;
             $pagina = "paginas/{$pagina}.php";
 
             //verificar se a pagina existe
@@ -52,10 +54,9 @@
 
             <div class="footer-coluna">
                 <h3>Navegacao</h3>
-                <a href="index.php?pagina=home">Home</a>
-                <a href="index.php?pagina=funcionamento">Quem somos</a>
-                <a href="index.php?pagina=servico">Servicos</a>
-                <a href="index.php?pagina=contato">Contato</a>
+                <?php foreach ($navLinks as $slug => $label): ?>
+                    <a href="index.php?pagina=<?= $slug ?>"><?= $label ?></a>
+                <?php endforeach; ?>
             </div>
 
             <div class="footer-coluna">
@@ -80,5 +81,18 @@
             <p>Desenvolvido por Ana Carolina</p>
         </div>
     </footer>
+    <script>
+        const menuBotao = document.querySelector("[data-menu-toggle]");
+        const menuPainel = document.querySelector("[data-menu-panel]");
+
+        if (menuBotao && menuPainel) {
+            menuBotao.addEventListener("click", () => {
+                const menuAberto = menuBotao.getAttribute("aria-expanded") === "true";
+
+                menuBotao.setAttribute("aria-expanded", String(!menuAberto));
+                menuPainel.dataset.open = String(!menuAberto);
+            });
+        }
+    </script>
 </body>
 </html>

@@ -222,8 +222,8 @@ img {
 
 .header-nav {
   display: flex;
+  align-items: center;
   justify-content: flex-end;
-  gap: 18px;
   padding: 18px 32px;
   background: rgba(255, 255, 255, 0.95);
   box-shadow: 0 4px 18px rgba(23, 50, 58, 0.08);
@@ -232,9 +232,78 @@ img {
   z-index: 10;
 }
 
+.header-menu-botao {
+  display: none;
+  align-items: center;
+  gap: 12px;
+  min-height: 48px;
+  padding: 0 18px;
+  border: 0;
+  border-radius: var(--raio-pill);
+  background: rgba(31, 111, 120, 0.1);
+  color: var(--cor-primaria-escura);
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.header-menu-icone,
+.header-menu-icone::before,
+.header-menu-icone::after {
+  display: block;
+  width: 18px;
+  height: 2px;
+  border-radius: var(--raio-pill);
+  background: currentColor;
+  transition:
+    transform var(--transicao),
+    opacity var(--transicao);
+}
+
+.header-menu-icone {
+  position: relative;
+}
+
+.header-menu-icone::before,
+.header-menu-icone::after {
+  content: "";
+  position: absolute;
+  left: 0;
+}
+
+.header-menu-icone::before {
+  top: -6px;
+}
+
+.header-menu-icone::after {
+  top: 6px;
+}
+
+.header-menu-botao[aria-expanded="true"] .header-menu-icone {
+  background: transparent;
+}
+
+.header-menu-botao[aria-expanded="true"] .header-menu-icone::before {
+  transform: translateY(6px) rotate(45deg);
+}
+
+.header-menu-botao[aria-expanded="true"] .header-menu-icone::after {
+  transform: translateY(-6px) rotate(-45deg);
+}
+
+.header-menu-lista {
+  display: flex;
+  justify-content: flex-end;
+  gap: 18px;
+}
+
 .header-nav a {
   box-shadow: 0 8px 20px rgba(31, 111, 120, 0.22);
   cursor: pointer;
+}
+
+.header-nav a.is-active {
+  background: var(--cor-primaria-escura);
 }
 
 .header-nav a:active {
@@ -762,7 +831,7 @@ img {
 
 @media (max-width: 768px) {
   .banner-imagem {
-    height: 100svh;
+    height: auto;
   }
 
   .conteudo-principal {
@@ -773,13 +842,33 @@ img {
   }
 
   .header-nav {
-    justify-content: center;
+    align-items: stretch;
     flex-wrap: wrap;
     padding: 16px;
   }
 
+  .header-menu-botao {
+    display: inline-flex;
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .header-menu-lista {
+    display: none;
+    width: 100%;
+    margin-top: 14px;
+    padding-top: 14px;
+    border-top: 1px solid rgba(23, 50, 58, 0.1);
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .header-menu-lista[data-open="true"] {
+    display: flex;
+  }
+
   .header-nav a {
-    min-width: 180px;
+    width: 100%;
   }
 
   .conteudo-principal h1 {
